@@ -83,6 +83,7 @@ export const certificates: Certificate[] = [
     },
     career: {
       positions: ['教师（语文/幼师要求较高）', '播音主持', '公务员', '窗口服务人员', '导游'],
+      salaryRange: {},
       demandCities: ['全国普遍需求，与教师资格认定量正相关'],
       industryTrend: '稳定' as const,
       relatedCertificates: ['教师资格证（核心搭配）'],

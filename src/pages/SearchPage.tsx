@@ -13,7 +13,7 @@ export default function SearchPage() {
   const [category, setCategory] = useState(searchParams.get('category') || '全部');
   const [education, setEducation] = useState(searchParams.get('education') || '不限');
   const [workYears, setWorkYears] = useState(searchParams.get('workYears') || '不限');
-  const [sortBy, setSortBy] = useState(searchParams.get('sortBy') || 'hotScore');
+  const [sortBy, setSortBy] = useState<'hotScore' | 'difficulty' | 'value'>((searchParams.get('sortBy') as 'hotScore' | 'difficulty' | 'value') || 'hotScore');
   const [difficulty, setDifficulty] = useState(searchParams.get('difficulty') || '');
   const [compareIds, setCompareIds] = useLocalStorage<string[]>('compare', []);
   const [favorites, setFavorites] = useLocalStorage<string[]>('favorites', []);
@@ -87,7 +87,7 @@ export default function SearchPage() {
         onCategoryChange={setCategory}
         onEducationChange={setEducation}
         onWorkYearsChange={setWorkYears}
-        onSortChange={setSortBy}
+        onSortChange={(v: string) => setSortBy(v as 'hotScore' | 'difficulty' | 'value')}
         resultCount={sorted.length}
       />
 
